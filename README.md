@@ -48,7 +48,7 @@ root.render(
 
 The pattern of usage inside components is much the same as `React.useState` so it should feel reasonably familiar to any seasoned React developer.
 
-There are three main differences in the way `useGunState` is used.
+There are three main differences in the way `useGunState` is works.
 
 _Difference 1 -> NodeId Not Initial State_
 
