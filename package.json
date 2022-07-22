@@ -1,0 +1,28 @@
+{
+  "name": "use-gun-state",
+  "version": "1.0.1",
+  "description": "React hook that makes using gun.js for state management a dream.",
+  "license": "MIT",
+  "author": "Alex Litzow <enter@thealex.club>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "valtio": "^1.6.3"
+  },
+  "peerDependencies": {
+    "gun": "^0.2020.1237",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/gun": "^0.9.3",
+    "@types/react": "^18.0.15",
+    "gun": "^0.2020.1237"
+  }
+}
