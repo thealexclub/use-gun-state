@@ -1,6 +1,6 @@
 import { GunSchema } from "gun";
 import { useMemo } from "react";
-import useStore, { State } from "../valtio/valtio";
+import useStore, { State, Updater } from "../valtio/valtio";
 import { useGunContext } from "./gun-context";
 
 /**
@@ -43,12 +43,14 @@ export type SetState<T> = (state: Partial<T>) => void;
  *
  * @example
  * ```
- * const [todo, setTodo] = useGunState({
+ * interface ITodo {
  *   title: 'A Title',
  *   completed: false,
  *   assigned: 'Alex',
  *   collaborator: 'Blitz',
- * });
+ * }
+ *
+ * const [todo, setTodo] = useGunState<ITodo[]>("todo-list");
  *
  * const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
  *  setState({
@@ -68,7 +70,7 @@ export type SetState<T> = (state: Partial<T>) => void;
  */
 export default function useGunState<T extends Record<string, GunSchema>>(
   nodeId: keyof T & string
-): [State<T>, SetState<T>] {
+): [State<T>, SetState<T>, Updater<T>] {
   const gun = useGunContext();
 
   const [state, _updateState] = useStore<T>({} as T);
@@ -94,5 +96,5 @@ export default function useGunState<T extends Record<string, GunSchema>>(
     node.put(data as any);
   };
 
-  return [state, updateState];
+  return [state, updateState, _updateState];
 }

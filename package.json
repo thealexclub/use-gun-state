@@ -1,6 +1,6 @@
 {
   "name": "use-gun-state",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "url": "https://github.com/thealexclub/use-gun-state",
   "description": "React hook that makes using gun.js for state management a dream.",
   "license": "MIT",
